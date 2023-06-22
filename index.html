@@ -1,1 +1,58 @@
-www.instagram.com
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+border-radius:5px;
+}
+
+button {
+  padding: 10px 20px;
+border-radius:20px;
+border:1px;
+}
+
+.box-container {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <form>
+      <label for="username">кулланичи ады гир
+</label>
+      <input type="text" id="username" name="username" required>
+      <br><br>
+      <button type="button" onclick="showMessage()">пол</button>
+    </form>
+  </div>
+
+  <div id="message" class="box-container" style="display: none;"></div>
+
+  <script>
+    function showMessage() {
+      var username = document.getElementById("username").value;
+      var messageBox = document.getElementById("message");
+      messageBox.innerText = "Sevgiliniz kullanıcı adını öğrendim! Zaaa!";
+      messageBox.style.display = "block";
+    }
+  </script>
+</body>
+</html>

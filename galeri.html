@@ -5,261 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anasayfa</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
-
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <script>
-        $(document).on('ready', function () {
-            setTimeout(function () {
-                $('.letter').addClass('loaded');
-                $('.reg-text').addClass('loaded');
-            }, 1000);
-        });</script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100..900&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
         }
 
-        /* Basit bir CSS ile menüyü stilleme */
         body {
             font-family: "Exo", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: <weight>;
-            font-style: normal;
             margin: 0;
             padding: 0;
             background-color: #fff;
-
         }
 
-        .slider {
-            width: 100%;
-            height: 660px;
-            margin: 0;
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e2e2e2;
             position: relative;
-            background-color: white;
-            /* background-image: url("k1.jpg"); */
-            /* background-repeat: round; */
         }
 
-        .slick-slide img {
-            float: right;
-            margin: 121px;
-
-        }
-
-        .slick-prev,
-        .slick-next {
-            font-size: 0;
-            /* Metni görünmez hale getirir */
-            z-index: 1;
-        }
-
-        .slick-prev:before,
-        .slick-next:before {
-            content: "";
-            /* İçerik kaldırılır */
-            display: inline-block;
-            font-family: "slick";
-            font-size: 60px;
-            color: #0a0a05;
-            /* Okların rengi mavi */
-            background-color: transparent;
-            /* Okların arkaplan rengi şeffaf */
-        }
-
-        .slick-prev {
-            left: 50px;
-        }
-
-        .slick-prev:before {
-            content: "\2190";
-            /* Sol ok kodu */
-        }
-
-        .slick-next {
-            right: 80px;
-        }
-
-        .slick-next:before {
-            content: "\2192";
-            /* Sağ ok kodu */
-        }
-
-
-        .positiontop {}
-
-
-        .slide-caption {
-            position: absolute;
-            bottom: 20px;
-            color: #5d92a800;
-            font-size: 25px;
-            padding: 10px;
+        .logo img {
+            height: 40px;
             border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            top: 164px;
-            margin-left: 350px;
-            height: 50px;
         }
 
-        .slide-caption1 {
-            position: absolute;
-            bottom: 20px;
-            color: #5D92A8;
-            font-size: 24px;
-            padding: 10px;
-            border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            top: 233px;
-            margin-left: 344px;
-            height: 50px;
+        nav {
+            display: flex;
+            align-items: center;
         }
 
-        .slide-caption2 {
-            position: absolute;
-            bottom: 20px;
-            color: #5D92A8;
-            font-size: 24px;
-            padding: 10px;
-            border-radius: 5px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            top: 304px;
-            margin-left: 418px;
-            height: 50px;
-        }
-
-        .slick-active .slide-caption,
-        .slide-caption1,
-        .slide-caption2 {
-            opacity: 1;
-        }
-
-        .logo3 img {
-            margin-right: 171px;
-            border-radius: 5px
-        }
-
-        .logo4 img {
-            margin-right: 171px;
-            border-radius: 5px
-        }
-
-        .logo5 img {
-            margin-right: 171px;
-            border-radius: 5px
-        }
-
-
-
-
-        /* ******** */
-
-
-        .text-container {
-            width: 100%;
-            position: absolute;
-            top: 62px;
-            left: 91px;
-            height: 70px;
-            transform: translate(-50%, -50%);
-            color: #021D29;
-            font-family: "Cutive Mono", monospace;
-            letter-spacing: 4px;
-            font-size: 34px;
-            -webkit-font-smoothing: antialiased;
-            text-align: center;
-        }
-
-        span {
-            display: inline-block;
-        }
-
-        .reg-text {
-            transform: translateY(100px);
-            opacity: 0;
-            transition: transform 3.3333333333s ease-out, opacity 5s ease;
-        }
-
-        .reg-text.loaded {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .letter {
-            transition: transform 5s cubic-bezier(0.43, 0.1, 0.57, 0.9), filter 5s ease, opacity 5s ease;
-            opacity: 0;
-            filter: blur(5px);
-        }
-
-        .letter:nth-of-type(2) {
-            transform: translateY(-160px);
-            transition-duration: 2.5s;
-        }
-
-        .letter:nth-of-type(3) {
-            filter: blur(0);
-            transform: translateY(-170px);
-            transition-duration: 3.8461538462s;
-        }
-
-        .letter:nth-of-type(4) {
-            transform: translateY(-200px);
-            transition-duration: 3.3333333333s;
-        }
-
-        .letter:nth-of-type(5) {
-            transform: translateY(-150px);
-            transition-duration: 2.5s;
-        }
-
-        .letter:nth-of-type(6) {
-            filter: blur(0);
-            transform: translateY(-180px);
-            transition-duration: 2.1739130435s;
-        }
-
-        .letter.loaded {
-            opacity: 1;
-            transform: translateY(0);
-            filter: blur(0);
-            box-shadow: 2px 4px 4px #13678A;
-        }
-
-        .div-container {
-            width: 200px;
-            height: 200px;
-            border: 1px solid black;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-
-        .image {
+        .menu-toggle {
             display: none;
-            width: 100%;
-            height: 100%;
+            flex-direction: column;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0;
         }
 
+        .menu-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #000;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
 
-        .cartone svg {
-            width: 60px;
-            margin-left: 80px;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
 
+        nav ul li {
+            display: inline;
+        }
 
-
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
         }
 
         .gallery-container {
@@ -273,30 +89,28 @@
         .gallery-item {
             width: 100%;
             max-width: 300px;
-            height: auto;
             overflow: hidden;
         }
 
         .thumbnail {
             width: 100%;
-            height: auto;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
         .thumbnail:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000; /* Z-index artırıldı */
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: #000; /* Arka planı tamamen siyah yapar */
+            background-color: rgba(0, 0, 0, 0.8);
             justify-content: center;
             align-items: center;
         }
@@ -304,53 +118,63 @@
         .swiper-container {
             width: 90%;
             height: 90%;
-            max-width: 1000px; /* Modal boyutunu kısıtlayabilirsiniz */
+            max-width: 1000px;
             position: relative;
-        }
-
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         .swiper-slide img {
             width: 100%;
             height: auto;
-            object-fit: contain; /* Resimlerin tam olarak görünmesini sağlar */
         }
 
         .close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             color: #fff;
             font-size: 30px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 1100; /* Çarpı işareti için yüksek z-index */
+            z-index: 1100;
         }
 
-        .close:hover {
-            color: #bbb;
-        }
-
-        /* Swiper Navigation */
         .swiper-button-next, .swiper-button-prev {
             color: #fff;
             width: 44px;
             height: 44px;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
-            z-index: 1050; /* Navigation için yüksek z-index */
         }
 
         .swiper-button-next:hover, .swiper-button-prev:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Medya Sorguları */
         @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #f8f9fa;
+                border-bottom: 1px solid #e2e2e2;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                text-align: center;
+                padding: 10px;
+            }
+
             .close {
                 font-size: 24px;
             }
@@ -373,50 +197,44 @@
                 height: 30px;
             }
         }
+
+        .text-container {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            color: #021D29;
+            font-family: "Cutive Mono", monospace;
+            letter-spacing: 4px;
+            font-size: 24px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="positiontop">
-        <header>
-            <div class="logo"><img src="logo1.png" alt=""></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="#">Ürünler</a></li>
-                    <li><a href="galeri.html">Galeri</a></li>
-                    <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="#">İletişim</a></li>
-                </ul>
-            </nav>
-        </header>
-    </div>
-    <div class="hr"></div>
+    <header>
+        <div class="logo"><img src="logo1.png" alt="Logo"></div>
+        <button class="menu-toggle" id="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="#">Ürünler</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="#">Hakkımızda</a></li>
+                <li><a href="#">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-
-   
     <div class="gallery-container">
         <div class="gallery-item">
             <img src="i1.jfif" alt="Resim 1" class="thumbnail">
         </div>
         <div class="gallery-item">
             <img src="i2.webp" alt="Resim 2" class="thumbnail">
-        </div>
-        <div class="gallery-item">
-            <img src="i3.webp" alt="Resim 3" class="thumbnail">
-        </div>
-        <div class="gallery-item">
-            <img src="i3.webp" alt="Resim 3" class="thumbnail">
-        </div>
-        <div class="gallery-item">
-            <img src="i3.webp" alt="Resim 3" class="thumbnail">
-        </div>
-        <div class="gallery-item">
-            <img src="i3.webp" alt="Resim 3" class="thumbnail">
-        </div>
-        <div class="gallery-item">
-            <img src="i3.webp" alt="Resim 3" class="thumbnail">
         </div>
         <div class="gallery-item">
             <img src="i3.webp" alt="Resim 3" class="thumbnail">
@@ -430,222 +248,79 @@
             <div class="swiper-wrapper" id="swiper-wrapper">
                 <!-- Swiper slaytları burada JavaScript ile eklenecek -->
             </div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
-
-            <!-- Add Navigation -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
         </div>
     </div>
-   
 
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                let swiper;
-    
-                function openModal(index) {
-                    const modal = document.getElementById('modal');
-                    const swiperWrapper = document.getElementById('swiper-wrapper');
-                    const slides = document.querySelectorAll('.gallery-item img');
-    
-                    const images = Array.from(slides).map(slide => slide.src);
-    
-                    swiperWrapper.innerHTML = images.map(src => 
-                        `<div class="swiper-slide"><img src="${src}" /></div>`
-                    ).join('');
-    
-                    if (swiper) {
-                        swiper.destroy(true, true);
-                    }
-    
-                    swiper = new Swiper('.swiper-container', {
-                        initialSlide: index,
-                        loop: true,
-                        spaceBetween: 10, // Slaytlar arasındaki boşluk
-                        pagination: {
-                            el: '.swiper-pagination',
-                            clickable: true,
-                        },
-                        navigation: {
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        },
-                        slidesPerView: 1, // Her kaydırmada tek bir resim görünsün
-                    });
-    
-                    modal.style.display = 'flex';
-                }
-    
-                document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
-                    thumbnail.addEventListener('click', () => {
-                        openModal(index);
-                    });
-                });
-    
-                const modal = document.getElementById('modal');
-                const closeBtn = document.querySelector('.close');
-    
-                closeBtn.addEventListener('click', () => {
-                    modal.style.display = 'none';
-                });
-    
-                window.addEventListener('click', (event) => {
-                    if (event.target === modal) {
-                        modal.style.display = 'none';
-                    }
-                });
-            });
-        
-    </script>
-
-    </div>
-    <div class="cartone">
-
-
-
-    </div>
-    <div class="b-full">
-        <div class="bilgim">
-            <div class="box-f">
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="bilgim">
-            <div class="box-f">
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-                <div class="box-b">
-                    <div class="text-f">
-                        <div class="text-b">POLİÜRETAN MEMBRAN</div>
-                        <div class="text-p">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam quasi
-                            dolores porro accusantium quibusdam voluptatem quisquam consequuntur minima esse culpa,
-                            dolore molestias asperiores officia temporibus in tempore incidunt, soluta expedita.</div>
-                        <div class="text-l"><a href="#">daha fazla bilgi</a></div>
-                        <div class="logo-k"><img src="kov2.jpg" alt=""></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="bilgim">
-            <div class="box-f-1">
-                <div class="box-b-1"></div>
-            </div>
-        </div>
-    </div>
-    <footer></footer>
-
-
-    <!-- silider scripti -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-            var slider = $('.slider').slick({
-                autoplay: true, // Otomatik oynatma aktif
-                autoplaySpeed: 6000, // Otomatik oynatma hızı (ms cinsinden)
-                arrows: true,
-                dots: true
-            });
+            let swiper;
 
-            // Önceki ve sonraki oklara tıkladığınızda otomatik oynatmayı devam ettir
-            $('.slick-prev, .slick-next').on('click', function () {
-                slider.slick('slickPlay');
-            });
-        });
-    </script>
+            function openModal(index) {
+                const modal = document.getElementById('modal');
+                const swiperWrapper = document.getElementById('swiper-wrapper');
+                const slides = document.querySelectorAll('.gallery-item img');
 
+                const images = Array.from(slides).map(slide => slide.src);
 
+                swiperWrapper.innerHTML = images.map(src => 
+                    `<div class="swiper-slide"><img src="${src}" /></div>`
+                ).join('');
 
+                if (swiper) {
+                    swiper.destroy(true, true);
+                }
 
+                swiper = new Swiper('.swiper-container', {
+                    initialSlide: index,
+                    loop: true,
+                    spaceBetween: 10,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    slidesPerView: 1,
+                });
 
-
-
-    <script>
-
-        // silider
-
-        function changeImage(imageId) {
-            // Tüm resimleri gizle
-            var images = document.querySelectorAll('.image');
-            images.forEach(function (image) {
-                image.style.display = 'none';
-            });
-
-            // İstenen resmi göster
-            var targetImage = document.getElementById(imageId);
-            if (targetImage) {
-                targetImage.style.display = 'block';
+                modal.style.display = 'flex';
             }
-        }
-    </script>
 
-    <script>
-        $(document).ready(function () {
-            $('.slider').slick({
-                autoplay: true,
-                autoplaySpeed: 2000,
-                arrows: true,
-                dots: true
+            document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    openModal(index);
+                });
+            });
+
+            const modal = document.getElementById('modal');
+            const closeBtn = document.querySelector('.close');
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            // Menü Toggle Scripti
+            const menuToggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('menu');
+
+            menuToggle.addEventListener('click', () => {
+                menu.classList.toggle('show');
             });
         });
     </script>
-
-
-
-
-
-
 </body>
 
 </html>

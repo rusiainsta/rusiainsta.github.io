@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaydırılabilir Galeri</title>
+    <style>
+        /* Genel Stil */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow: hidden; /* Modal açıkken arka plan kaydırmasını engelle */
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            width: 300px;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            display: flex;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Medya Sorguları */
+        @media (max-width: 768px) {
+            .prev, .next {
+                padding: 12px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .prev, .next {
+                padding: 8px;
+                font-size: 18px;
+            }
+
+            .close {
+                top: 10px;
+                right: 10px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <img src="i1.jfif" alt="Resim 1" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="i2.webp" alt="Resim 2" class="thumbnail">
+        </div>
+        <div class="gallery-item">
+            <img src="i3.webp" alt="Resim 3" class="thumbnail">
+        </div>
+        <!-- Daha fazla resim ekleyebilirsiniz -->
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <div class="modal-content" id="modal-content">
+            <!-- Resimler burada JavaScript ile eklenecek -->
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        let images = [];
+
+        function openModal(index) {
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            const slides = document.querySelectorAll('.gallery-item img');
+
+            slideIndex = index;
+            images = Array.from(slides).map(slide => slide.src);
+            
+            modalContent.innerHTML = `<img src="${images[slideIndex]}" />`;
+            modal.style.display = 'flex';
+        }
+
+        function changeSlide(n) {
+            const modalContent = document.getElementById('modal-content');
+            slideIndex += n;
+
+            if (slideIndex >= images.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = images.length - 1; }
+
+            modalContent.innerHTML = `<img src="${images[slideIndex]}" />`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    openModal(index);
+                });
+            });
+
+            const modal = document.getElementById('modal');
+            const closeBtn = document.querySelector('.close');
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            window.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowRight') {
+                    changeSlide(1);
+                } else if (event.key === 'ArrowLeft') {
+                    changeSlide(-1);
+                }
+            });
+
+            // Mouse ile kaydırma işlevi
+            let isDragging = false;
+            let startX;
+            let scrollLeft;
+
+            const modalContent = document.getElementById('modal-content');
+            
+            modalContent.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.pageX - modalContent.offsetLeft;
+                scrollLeft = modalContent.scrollLeft;
+            });
+
+            modalContent.addEventListener('mouseleave', () => {
+                isDragging = false;
+            });
+
+            modalContent.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            modalContent.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.pageX - modalContent.offsetLeft;
+                const walk = (x - startX) * 2; // Kaydırma hızı
+                modalContent.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch hareketleri için ekleyin
+            modalContent.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                startX = e.touches[0].pageX - modalContent.offsetLeft;
+                scrollLeft = modalContent.scrollLeft;
+            });
+
+            modalContent.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            modalContent.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - modalContent.offsetLeft;
+                const walk = (x - startX) * 2; // Kaydırma hızı
+                modalContent.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
+</body>
+</html>

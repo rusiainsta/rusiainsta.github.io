@@ -147,19 +147,19 @@
         }
 
         .logo3 img {
-    margin-right: 171px;
-    border-radius: 5px
-}
+            margin-right: 171px;
+            border-radius: 5px
+        }
 
-.logo4 img {
-    margin-right: 171px;
-    border-radius: 5px
-}
+        .logo4 img {
+            margin-right: 171px;
+            border-radius: 5px
+        }
 
-.logo5 img {
-    margin-right: 171px;
-    border-radius: 5px
-}
+        .logo5 img {
+            margin-right: 171px;
+            border-radius: 5px
+        }
 
 
 
@@ -259,6 +259,239 @@
 
 
         }
+
+        .gallery-container {
+            position: relative;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            margin: auto;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 3px;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%);
+            /* Center vertically */
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .gallery-wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            overflow: hidden;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            /* Küçük ekranlar için padding'i azaltalım */
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            /* Mobil cihazlar için daha küçük bir sağ boşluk */
+            color: #fff;
+            font-size: 30px;
+            /* Mobil cihazlar için biraz daha küçük font */
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 12px;
+            /* Mobil cihazlar için biraz daha küçük padding */
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            /* Mobil cihazlar için biraz daha küçük font */
+            border-radius: 3px;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Mobil ekranlar için medya sorgusu */
+        @media (max-width: 600px) {
+            .gallery-item {
+                padding: 2px;
+                /* Daha küçük padding */
+            }
+
+            .close {
+                top: 5px;
+                right: 5px;
+                font-size: 24px;
+            }
+
+            .prev,
+            .next {
+                padding: 8px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 
@@ -269,10 +502,10 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Anasayfa</a></li>
-                    <li><a href="urunler.html">Ürünler</a></li>
+                    <li><a href="#">Ürünler</a></li>
                     <li><a href="galeri.html">Galeri</a></li>
-                    <li><a href="hakkımızda.html">Hakkımızda</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
+                    <li><a href="#">Hakkımızda</a></li>
+                    <li><a href="#">İletişim</a></li>
                 </ul>
             </nav>
         </header>
@@ -280,94 +513,92 @@
     <div class="hr"></div>
 
 
-    <div class="slider">
-        <div>
-            <img src="/logo2.png" alt="Slide 1">
-            <div class="slide-caption">Slayt 1 Yazısı
-                <div class="text-container">
-                    <span class="reg-text">Slogan</span>
-                    <span class="letter">H</span><span class="letter">e</span><span class="letter">r</span><span
-                        class="letter">e</span><span class="letter">.</span>
+
+
+    
+        <div class="gallery-container">
+            <div class="gallery-wrapper">
+                <div class="gallery-item">
+                    <img src="i1.jfif" alt="Resim 1" class="thumbnail">
                 </div>
-                <div class="buton"><button>DETAYLI BİLGİ</button></div>
+                <div class="gallery-item">
+                    <img src="i2.webp" alt="Resim 2" class="thumbnail">
+                </div>
+                <div class="gallery-item">
+                    <img src="i3.webp" alt="Resim 3" class="thumbnail">
+                </div>
             </div>
-            <div class="slide-caption1"></div>
-            <div class="slide-caption2"></div>
+        
 
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modal-img">
+            <div id="caption"></div>
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
         </div>
-        <div class="logo3">
-            <img src="log3.jfif" alt="Slide 2" width="1000px" height="500px">
-            <div class="slide-caption"></div>
-        </div>
-        <div class="logo4">
-            <img src="logo4.jfif" alt="Slide 3" width="1000px" height="500px">
-            <div class="slide-caption"></div>
-        </div>
-        <div class="logo5">
-            <img src="logo5.jfif" alt="Slide 4" width="1000px" height="500px">
-            <div class="slide-caption">Slayt 4 Yazısı</div>
-        </div>
-    </div>
 
-    <div class="main">
-        <div class="mainone">
-            <div class="main_add"> YALITIM VE ZEMİN SİSTEMLERİ</div>
-        </div>
-        <div class="textone">
+        <script>
+            let slideIndex = 0;
 
-        </div>
-        <div class="imgeone">
-            <div class="imge">
-                <img id="image1" class="image" src="kurs1.jpg" alt="Resim 1">
-                <img id="image2" class="image" src="kurs2.jpg" alt="Resim 2">
-                <!-- <img id="image3" class="image" src="kurs3.jpg" alt="Resim 3"> -->
-            </div>
-        </div>
+            function openModal(index) {
+                slideIndex = index;
+                const slides = document.querySelectorAll('.gallery-item img');
+                const modal = document.getElementById('modal');
+                const modalImg = document.getElementById('modal-img');
+                const captionText = document.getElementById('caption');
+
+                modal.style.display = 'flex';
+                modalImg.src = slides[slideIndex].src;
+                captionText.innerHTML = slides[slideIndex].alt;
+            }
+
+            function moveSlide(n) {
+                const slides = document.querySelectorAll('.gallery-item img');
+                slideIndex += n;
+
+                if (slideIndex >= slides.length) { slideIndex = 0; }
+                if (slideIndex < 0) { slideIndex = slides.length - 1; }
+
+                const modalImg = document.getElementById('modal-img');
+                modalImg.src = slides[slideIndex].src;
+                document.getElementById('caption').innerHTML = slides[slideIndex].alt;
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.thumbnail').forEach((thumbnail, index) => {
+                    thumbnail.addEventListener('click', () => {
+                        openModal(index);
+                    });
+                });
+
+                const modal = document.getElementById('modal');
+                const closeBtn = document.querySelector('.close');
+
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+
+                window.addEventListener('keydown', (event) => {
+                    if (event.key === 'ArrowRight') {
+                        moveSlide(1);
+                    } else if (event.key === 'ArrowLeft') {
+                        moveSlide(-1);
+                    }
+                });
+            });
+        </script>
+
 
     </div>
     <div class="cartone">
 
-        <div class="cart1" id="div1" onmouseover="changeImage('image1')">
-            <h3>POLİÜRETAN YALITIM SİSTEMLERİ</h3>
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path fill="#ffffff"
-                    d="M160 80H512c8.8 0 16 7.2 16 16V320c0 8.8-7.2 16-16 16H490.8L388.1 178.9c-4.4-6.8-12-10.9-20.1-10.9s-15.7 4.1-20.1 10.9l-52.2 79.8-12.4-16.9c-4.5-6.2-11.7-9.8-19.4-9.8s-14.8 3.6-19.4 9.8L175.6 336H160c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM96 96V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160c-35.3 0-64 28.7-64 64zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120zm208 24a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
-            </svg>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-
-
-        </div>
-        <div class="cart2" id="div2" onmouseover="changeImage('image2')">
-
-
-            <h3>POLİÜRETAN YALITIM SİSTEMLERİ</h3>
-
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path fill="#ffffff"
-                    d="M160 80H512c8.8 0 16 7.2 16 16V320c0 8.8-7.2 16-16 16H490.8L388.1 178.9c-4.4-6.8-12-10.9-20.1-10.9s-15.7 4.1-20.1 10.9l-52.2 79.8-12.4-16.9c-4.5-6.2-11.7-9.8-19.4-9.8s-14.8 3.6-19.4 9.8L175.6 336H160c-8.8 0-16-7.2-16-16V96c0-8.8 7.2-16 16-16zM96 96V320c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H160c-35.3 0-64 28.7-64 64zM48 120c0-13.3-10.7-24-24-24S0 106.7 0 120V344c0 75.1 60.9 136 136 136H456c13.3 0 24-10.7 24-24s-10.7-24-24-24H136c-48.6 0-88-39.4-88-88V120zm208 24a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
-            </svg>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-            <li>PU 1K POLİÜRETAN MEMBRAN</li>
-        </div>
-        <!-- <div class="cart3" id="div3" onmouseover="changeImage('image3')">
-
-
-            <svg xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-        <!-- <path fill="#ffffff"
-                    d="M341.6 29.2L240.1 130.8l-9.4-9.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-9.4-9.4L482.8 170.4c39-39 39-102.2 0-141.1s-102.2-39-141.1 0zM55.4 323.3c-15 15-23.4 35.4-23.4 56.6v42.4L5.4 462.2c-8.5 12.7-6.8 29.6 4 40.4s27.7 12.5 40.4 4L89.7 480h42.4c21.2 0 41.6-8.4 56.6-23.4L309.4 335.9l-45.3-45.3L143.4 411.3c-3 3-7.1 4.7-11.3 4.7H96V379.9c0-4.2 1.7-8.3 4.7-11.3L221.4 247.9l-45.3-45.3L55.4 323.3z" />
-            </svg>
-
-            <p>lorem</p>
-            <p>lorem</p>
-            <p>lorem</p>
-        </div> --> -->
 
 
     </div>

@@ -1,0 +1,818 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+.header-up {
+    background-color: white;
+    width: 100%;
+    height: 88px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+    /* Primary */
+    color: #475F45;
+
+
+
+
+}
+
+.logo-up img {
+    width: 200px;
+    height: 40px;
+
+
+}
+
+.link-f {
+    background-color: white;
+
+
+
+}
+
+.link-f a {
+    color: #475F45;
+    text-decoration: none;
+    padding: 10px;
+
+}
+
+.btn-h {
+    /* background-color:white;
+    color: #475F45;
+    width: 169px;
+    height: 46px;
+    border: 2px solid #475f45d3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; */
+
+
+
+    background-color: white;
+    color: 506A4D;
+    width: 169px;
+    height: 46px;
+    border: 2px solid #475f45d3;
+
+
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.btn-h:hover {
+    background-color: #475F45;
+    color: white;
+    cursor: pointer;
+
+
+
+}
+
+.btn-h p {}
+
+.main {
+    width: 100%;
+    /* height: 400px; */
+    /* background-color: gray; */
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 70px;
+
+}
+
+.main-o {
+    /* background-color: green; */
+    width: 528px;
+    height: 306px;
+    /* left: 99px;
+    top: 313px;
+     */
+
+}
+
+.main-t {
+    /* background-color: orange; */
+    /* margin-right: 150px; */
+
+
+}
+
+.m-t-1 {
+
+
+    /* text/extra large title */
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 57px;
+    line-height: 110%;
+    /* or 63px */
+    text-transform: capitalize;
+
+    /* Header text */
+    color: #343D33;
+
+
+
+}
+
+.m-t-2 {
+
+    /* text/large body */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    margin-top: 20px;
+
+    font-size: 25px;
+    line-height: 150%;
+    /* or 38px */
+    text-transform: capitalize;
+
+    /* text/body copy */
+    color: #414840;
+
+}
+
+.m-b-k {
+    width: 389px;
+    height: 56px;
+    display: flex;
+    margin: 25px 5px 5px 0px;
+
+
+
+}
+
+.m-b-1 {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+    /* Primary */
+    background: #475f45de;
+    color: white;
+    border: 1px solid #475f45de;
+    transition: background-color 0.5s ease-in-out;
+
+
+
+    /* Inside auto layout */
+
+
+}
+
+.m-b-2 {
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 15px;
+
+
+    transition: background-color 0.5s ease-in-out;
+
+    padding: 30px;
+    /* Primary */
+    background: white;
+    color: #475F45;
+    border: 1px solid #475f45de;
+
+    /* Inside auto layout */
+
+
+
+}
+
+.m-b-1:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #475f45de;
+    border: 1px solid white;
+}
+
+.m-b-2:hover {
+    cursor: pointer;
+    background-color: #475f45de;
+    color: white;
+}
+
+.middle {
+    width: 100%;
+    background-color: #343D33;
+    background-image: url("img/backgroundpic.png");
+    background-image: url(img/backgroundpic.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 80px;
+    flex-direction: column;
+
+
+
+}
+
+.main-l {
+    width: 1040px;
+    display: flex;
+    margin-bottom: 50px;
+
+}
+
+.mid-t-pic {
+    width: 300px;
+    height: 350px;
+    margin-top: 85px;
+    margin-right: 280px;
+
+
+}
+
+
+
+
+
+
+.main-r {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+
+}
+
+
+
+
+.mid-t-t {
+    /* text/large title */
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 110%;
+    /* or 50px */
+    text-transform: capitalize;
+
+    /* white */
+    color: #FFFFFF;
+    display: flex;
+}
+
+.mid-t-t2 {
+    /* text/default body */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    display: flex;
+    /* or 30px */
+
+    /* white */
+    color: #FFFFFF;
+}
+
+.mid-t-b {
+
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    color: transparent;
+    color: white;
+
+
+    /* white */
+    border: 2px solid #FFFFFF;
+
+}
+
+.kapsam1 {
+    display: block;
+
+    padding: 50px;
+    width: 500px;
+
+
+}
+
+.kapsam1 div {
+    margin-top: 31px;
+}
+
+
+.main-r img {
+    width: 1040px;
+    height: 409px;
+
+
+
+
+}
+
+.m2-1 {
+    display: flex;
+}
+
+.mid2main {
+    display: flex;
+    margin: 50px 100px 0px 100px;
+}
+
+
+.kapsayici-10 {
+    background-color: white;
+    margin-left: 20px;
+
+}
+
+.m2-r-t1 {
+    /* Title of post */
+
+    width: 280px;
+    height: 25px;
+
+    /* text/small title */
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 110%;
+    /* or 25px */
+
+    /* Primary */
+    color: #475F45;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.m2-r-t2 {
+    /* Lorem ipsum dolor sit amet, consectetur donec adipiscing elit. Tincidunt facilisis nunc lorem */
+
+    width: 354px;
+    height: 48px;
+    padding-top: 15px;
+
+    /* text/small body */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    /* text/body copy */
+    color: #414840;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.m2-r-t3 {
+    /* Frame 19 */
+
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    font-style: italic;
+    padding-top: 15px;
+    width: 280px;
+    height: 24px;
+
+    color: #414840;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+
+}
+
+.hr-10 {
+    /* divider */
+    margin-top: 12px;
+    margin-bottom: 15px;
+    width: 630px;
+    height: 1px;
+
+    /* light gray */
+    background: #41484085;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin-top: 10px;
+
+}
+
+.mid2-m1 {
+    margin-right: 30px;
+    display: flex;
+}
+
+.mid2-p {
+    margin-right: 30px;
+}
+
+.cizgikisa {
+    width: 100px;
+    height: 2px;
+    background-color: #475f4578;
+    margin-right: 10px;
+}
+
+.mid2-t-2 {
+    height: 24px;
+    color: #343D33;
+    font-size: 14px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+
+
+
+}
+
+.mid2-t-1 {
+    width: 375px;
+    height: 50px;
+    left: 99px;
+    top: 2050px;
+
+    /* text/large title */
+    font-family: 'Libre Baskerville';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    line-height: 110%;
+    /* identical to box height, or 50px */
+    text-transform: capitalize;
+
+    /* Header text */
+    color: #343D33;
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+
+}
+
+.mid2-t-2 {
+    display: flex;
+    align-items: center;
+    color: #475F45;
+    cursor: pointer;
+
+}
+
+.okisareti {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #343d33c8;
+}
+
+.mid2-t-1,
+.mid2-t-2 {
+    margin-left: 100px;
+}
+
+.footer-1 {
+    width: 100%;
+    height: 300px;
+    background-color: #343D33;
+    margin-top: 50px;
+
+
+}
+
+.footer-under {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.f-1,
+.f-2,
+.f-3 {
+
+
+    width: 400px;
+
+    color: white;
+    margin-top: 60px;
+
+
+
+}
+
+.f-3-social-media svg {
+    width: 30px;
+    height: 35px;
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+.f-2 a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-left: 80px;
+    font-family: monospace;
+
+}
+
+.f-1 img {
+    width: 100px;
+    height: 50px;
+}
+
+.f-1-p {
+    width: 269px;
+    height: 96px;
+    left: 99px;
+    top: 116px;
+
+    /* text/small body */
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+    /* white */
+    color: #FFFFFF;
+
+}
+
+.f-3 {
+    margin-top: -90px;
+}
+
+.f-1 {
+    margin-top: 0px
+}
+
+.f-son {
+    width: 100%;
+    background-color: #2b332a;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-son-b {
+    color: white;
+}
+
+.f-1-p {
+    font-family: 'roboto';
+    font-size: 16px;
+}
+
+.kapsam-y-s-c {
+
+    display: flex;
+    border: 10px solid #dfdfdf;
+}
+
+.yapay {
+    width: 380px;
+    height: 590px;
+    background-image: url("img/buyukorkide.jpg");
+    background-size: cover;
+    border: 10px solid #004F44;
+
+}
+
+.canli {
+    width: 222px;
+    height: 285px;
+    background-image: url("img/buyukorkide.jpg");
+    background-size: cover;
+    background-color: blue;
+    border: 10px solid #004F44;
+}
+
+.saksi {
+    width: 222px;
+    height: 285px;
+    background-image: url("img/buyukorkide.jpg");
+    background-size: cover;
+    background-color: orange;
+    border: 10px solid #004F44;
+}
+
+.kapsam-c-s {
+    border-right:10px solid #dfdfdf;
+}
+
+.canli,
+.yapay,
+.saksi {
+    /* margin: 1px; */
+
+}
+
+.saksi-btn {
+
+    width: 59px;
+    height: 28px;
+    color: white;
+    top: 476px;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: smaller;
+    text-align: center;
+    line-height: 25px;
+    
+   
+
+    background: #004F44;
+
+}
+.canli-btn {
+
+    width: 82px;
+    height: 28px;
+    color: white;
+    top: 476px;
+    border-radius: 5px;
+    font-size: smaller;
+    text-align: center;
+    margin: 10px;
+    line-height: 25px;
+   
+    
+    background: #004F44;
+}
+.yapay-btn {
+
+    width: 142px;
+    height: 28px;
+    color: white;
+    top: 476px;
+    border-radius: 5px;
+    font-size: smaller;
+    text-align: center;
+    line-height: 25px;
+    margin: 20px;
+    
+    background: #004F44;
+}
+
+/* .flowers-y
+{
+    background-color: #f4f4f4;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+   
+}
+.flowers-canli
+{
+    background-color: #f4f4f4;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+   
+}
+.flowers-saksi
+{
+    background-color: #f4f4f4;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+   
+} */

@@ -1,0 +1,142 @@
+/* Genel stil */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.product-card {
+    width: 100%;
+    height: 430px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.product-description {
+    font-size: 14px;
+    color: #555;
+    display: none;
+}
+
+.show-more {
+    background: #3498db;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.expanded .product-description {
+    display: block;
+}
+
+/* Tam ekran simgesi ve whatsapp simgesi */
+.fullscreen-icon, .watsapp-icon {
+    position: absolute;
+    cursor: pointer;
+    /* border-radius: 50%; */
+    padding: 30px;
+    color: white;
+}
+
+.fullscreen-icon {
+    top: 10px;
+    right: 10px;
+    background-image: url('fsc.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.watsapp-icon {
+    bottom: 40px;
+    right: 10px;
+    background-image: url('wpicon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Tam ekran görünümü */
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Kategoriler */
+.flowers-y {
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.flowers-y.active {
+    display: flex;
+}
+
+/* Buton ve Sekmeler */
+.canli-btn, .saksi-btn, .yapay-btn {
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.canli-btn:hover, .saksi-btn:hover, .yapay-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}

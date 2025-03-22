@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
         id: 1,
         name: "Tek Dallı Orkide",
         images: [
-          "img/tek_dalli_orkide_beyaz.jfif",
-          "img/mor_genis_saksi_orkide.jpg",
+          "imge/tek_dalli_orkide_beyaz.jfif",
+          "imge/mor_genis_saksi_orkide.jpg",
           "https://via.placeholder.com/400/343D33/FFFFFF?text=Yapay+Zeytin+3",
         ],
         price: "₺1.299,99",

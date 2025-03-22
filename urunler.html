@@ -16,6 +16,8 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css.css">
     <link rel="shortcut icon" href="img/favaicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css">
@@ -51,58 +53,78 @@
         }
 
     </script>
-    <div class="main">
-        <div class="main-o">
-            <div class="m-t-1">A beautiful adventure awaits</div>
-            <div class="m-t-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt facilisis nunc</div>
-            <div class="m-b-k">
-                <div class="m-b-1">Buy Ticket</div>
-                <div class="m-b-2">Learn More</div>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">Peyzaj ve Çiçek Kataloğu</h1>
+            <p class="site-description">Doğal güzelliği evinize taşıyın</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="category-tabs">
+            <button class="category-tab" id="tab-btn-1">
+                <i class="fas fa-tree"></i>
+                <span>Yapay Çiçek ve Ağaç</span>
+            </button>
+            <button class="category-tab" id="tab-btn-2">
+                <i class="fas fa-leaf"></i>
+                <span>Canlı Çiçek</span>
+            </button>
+            <button class="category-tab" id="tab-btn-3">
+                <i class="fas fa-seedling"></i>
+                <span>Saksı</span>
+            </button>
+        </div>
+
+        <div id="tab-content-1" class="tab-content">
+            <div class="shipping-info">
+                <div class="info-item">
+                    <i class="fas fa-truck"></i>
+                    <span>İstanbul içi aynı gün kargo</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Kapıda ödeme (Kredi kartı geçerli)</span>
+                </div>
+            </div>
+            <div class="product-grid">
+                <!-- Yapay Çiçek ve Ağaç ürünleri buraya gelecek -->
             </div>
         </div>
-        <div class="main-t">
 
-            <div class="kapsam-y-s-c">
-
-                <div class="kapsam-c-s">
-                    <div class="canli">
-                        <div class="canli-btn" onclick="openTab(1)">Canlı Çiçekler</div>
-                    </div>
-                    <div class="saksi">
-                        <div class="saksi-btn" onclick="openTab(2)">Saksı</div>
-                    </div>
-                </div>
-                <div class="yapay">
-                    <div class="yapay-btn" onclick="openTab(3)">Yapay Ağaç ve Çiçekler</div>
-
-                </div>
-
-
+        <div id="tab-content-2" class="tab-content">
+            <div class="product-grid">
+                <!-- Canlı Çiçek ürünleri buraya gelecek -->
             </div>
+        </div>
 
+        <div id="tab-content-3" class="tab-content">
+            <div class="product-grid">
+                <!-- Saksı ürünleri buraya gelecek -->
+            </div>
+        </div>
+    </main>
+
+    <div id="fullscreen-container" class="fullscreen-container">
+        <div class="fullscreen-content">
+            <div class="fullscreen-slider">
+                <div class="fullscreen-slider-container" id="fullscreen-slider-container">
+                    <!-- Fullscreen images will be added here -->
+                </div>
+                <div class="fullscreen-navigation">
+                    <button id="fullscreen-prev" class="fullscreen-nav-button"><i class="fas fa-chevron-left"></i></button>
+                    <div id="fullscreen-dots" class="fullscreen-dots">
+                        <!-- Dots will be added here -->
+                    </div>
+                    <button id="fullscreen-next" class="fullscreen-nav-button"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <button id="close-fullscreen" class="close-button"><i class="fas fa-times"></i> Kapat</button>
         </div>
     </div>
 
-    <!-- Kategoriler -->
-    <div id="flowers-1" class="flowers-y">
-        <div class="products-container" id="products-container-1">
-            <!-- Canlı Çiçekler Ürünleri Buraya Gelecek -->
-        </div>
-    </div>
-
-    <div id="flowers-2" class="flowers-y">
-        <div class="products-container" id="products-container-2">
-            <!-- Saksı Ürünleri Buraya Gelecek -->
-        </div>
-    </div>
-
-    <div id="flowers-3" class="flowers-y">
-        <div class="products-container" id="products-container-3">
-            <!-- Yapay Çiçekler Ürünleri Buraya Gelecek -->
-        </div>
-    </div>
-
-    <script src="js.js"></script>
+    <script src="script.js"></script>
+        
 
 
 

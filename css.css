@@ -594,13 +594,48 @@ body.no-scroll {
   }
 
   .slider-container {
-    height: 240px;
+    height: 200px; /* Daha kısa yükseklik */
+  }
+
+  /* Mobil görünümde yön oklarını gizle */
+  .slider-nav {
+    display: none;
   }
 
   .shipping-info {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+  }
+
+  /* Mobil için ürün grid boşluğunu azalt */
+  .product-grid {
+    gap: 15px;
+  }
+
+  /* Mobil için ürün başlık yüksekliğini azalt */
+  .product-header {
+    padding: 10px;
+  }
+
+  /* Mobil için içerik padding'ini azalt */
+  .product-content {
+    padding: 15px;
+  }
+
+  /* Mobil için özellikler container margin'ini azalt */
+  .product-features-container {
+    margin-bottom: 10px;
+  }
+
+  /* Mobil için footer padding'ini azalt */
+  .product-footer {
+    padding: 15px;
+  }
+
+  /* Mobil için WhatsApp buton padding'ini azalt */
+  .whatsapp-button {
+    padding: 10px;
   }
 }
 
@@ -628,7 +663,31 @@ body.no-scroll {
   }
 
   .slider-container {
-    height: 220px;
+    height: 180px; /* Daha da kısa yükseklik */
+  }
+
+  /* Telefon için ürün grid boşluğunu daha da azalt */
+  .product-grid {
+    gap: 10px;
+  }
+
+  /* Telefon için ürün başlık yüksekliğini daha da azalt */
+  .product-header {
+    padding: 8px;
+  }
+
+  .product-title {
+    font-size: 1rem;
+  }
+
+  /* Telefon için içerik padding'ini daha da azalt */
+  .product-content {
+    padding: 10px;
+  }
+
+  /* Telefon için footer padding'ini daha da azalt */
+  .product-footer {
+    padding: 10px;
   }
 }
 

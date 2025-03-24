@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "Yapay Zeytin Ağacı",
       images: [
         "https://rusiainsta.github.io/imge/mor_genis_saksi_orkide.jpg",
+        "https://via.placeholder.com/400/5A7A58/FFFFFF?text=Yapay+Zeytin+2",
         "https://rusiainsta.github.io/imge/mor_genis_saksi_orkide.jpg",
-        "https://via.placeholder.com/400/343D33/FFFFFF?text=Yapay+Zeytin+3",
       ],
       price: "₺1.299,99",
       shortFeatures: "Gerçekçi görünüm, UV korumalı, iç ve dış mekan kullanımı",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
       id: 4,
       name: "Yapay Bambu Ağacı",
       images: [
-        "https://rusiainsta.github.io/imge/mor_genis_saksi_orkide.jpg",
+        "https://via.placeholder.com/400/475F45/FFFFFF?text=Yapay+Bambu+1",
         "https://via.placeholder.com/400/5A7A58/FFFFFF?text=Yapay+Bambu+2",
         "https://via.placeholder.com/400/343D33/FFFFFF?text=Yapay+Bambu+3",
       ],
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <li><strong>Kaplama:</strong> Su geçirmez özel vernik</li>
                     <li><strong>Boyut:</strong> 30cm çap, 40cm yükseklik</li>
                     <li><strong>Özellik:</strong> Ayaklı tasarım, iç saksı dahil</li>
-                    <li><strong>Kullanım:</strong> İç mekan</li>
+                    <li><strong>Kullanım:</strong> ��ç mekan</li>
                 </ul>
             `,
     },

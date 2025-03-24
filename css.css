@@ -147,11 +147,11 @@ body.no-scroll {
 /* Product Grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -216,12 +216,19 @@ body.no-scroll {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px var(--shadow-color);
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .slider {
   display: flex;
   height: 100%;
   transition: transform 0.3s ease;
+  cursor: grab;
+}
+
+.slider:active {
+  cursor: grabbing;
 }
 
 .slider-item {
@@ -331,12 +338,15 @@ body.no-scroll {
   width: 100%;
 }
 
+/* Kaldırılan veya yorum satırına alınan stil */
+/*
 .product-features {
   font-size: 0.95rem;
   color: var(--text-light);
   margin-bottom: 10px;
   line-height: 1.5;
 }
+*/
 
 .product-features-full {
   max-height: 0;
@@ -470,6 +480,13 @@ body.no-scroll {
   display: flex;
   height: 100%;
   transition: transform 0.3s ease;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.fullscreen-slider-container:active {
+  cursor: grabbing;
 }
 
 .fullscreen-slider-item {
@@ -563,13 +580,6 @@ body.no-scroll {
     font-size: 2rem;
   }
 
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit:scale-down;
-  }
-  
-
   .category-tab {
     padding: 12px 20px;
     font-size: 0.9rem;
@@ -598,12 +608,6 @@ body.no-scroll {
   .site-header {
     padding: 30px 0;
   }
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit:scale-down;
-  }
-  
 
   .site-title {
     font-size: 1.8rem;

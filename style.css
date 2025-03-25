@@ -650,103 +650,7 @@ video {
     margin-left: 100px;
 }
 
-.footer-1 {
-    width: 100%;
-    height: 300px;
-    background-color: #343D33;
-    margin-top: 50px;
 
-
-}
-
-.footer-under {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.f-1,
-.f-2,
-.f-3 {
-
-
-    width: 400px;
-
-    color: white;
-    margin-top: 60px;
-
-
-
-}
-
-.f-3-social-media svg {
-    width: 30px;
-    height: 35px;
-    margin-top: 20px;
-    margin-left: 20px;
-
-}
-
-.f-2 a {
-    display: block;
-    padding: 10px;
-    color: white;
-    text-decoration: none;
-    margin-left: 80px;
-    font-family: monospace;
-
-}
-
-.f-1 img {
-    width: 100px;
-    height: 50px;
-}
-
-.f-1-p {
-    width: 269px;
-    height: 96px;
-    left: 99px;
-    top: 116px;
-
-    /* text/small body */
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    /* or 24px */
-
-    /* white */
-    color: #FFFFFF;
-
-}
-
-.f-3 {
-    margin-top: -90px;
-}
-
-.f-1 {
-    margin-top: 0px
-}
-
-.f-son {
-    width: 100%;
-    background-color: #2b332a;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.f-son-b {
-    color: white;
-}
-
-.f-1-p {
-    font-family: 'roboto';
-    font-size: 16px;
-}
 
 .kapsam-y-s-c {
 
@@ -937,6 +841,7 @@ video {
         margin-top: 30px;
         justify-content: flex-start;
     }
+    }
 
     .main-o {
         width: 90%;
@@ -955,22 +860,7 @@ video {
         margin-bottom: 20px;
     }
 
-    .footer-1 {
-        height: auto;
-        padding: 20px;
-    }
-
-    .footer-under {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .f-1, .f-2, .f-3 {
-        width: 100%;
-        margin-top: 10px;
-        text-align: center;
-    }
-}
+    
 
 @media (max-width: 768px) {
     .header-up {
@@ -1015,9 +905,6 @@ video {
         flex-direction: column;
     }
 
-    .footer-1 {
-        padding: 30px;
-    }
 
     .mid-t-t {
         font-size: 30px;
@@ -1069,20 +956,7 @@ video {
         flex-direction: column;
     }
 
-    .footer-1 {
-        padding: 20px;
-    }
-
-    .footer-under {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .f-1, .f-2, .f-3 {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-    }
+  
 
     .mid-t-t {
         font-size: 25px;

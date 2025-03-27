@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let startX
   let touchStartTime
   let touchEndTime
+  let isDragging = false
+  let animationFrameId = null
 
   // Slider noktalarını oluştur
   slides.forEach((_, index) => {
@@ -49,8 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Slider'ı belirli bir slide'a götür
   function goToSlide(index) {
     currentIndex = index
-    slider.style.transform = `translateX(-${currentIndex * 100}%)`
+    updateSliderPosition()
     updateDots()
+  }
+
+  // Slider position update with requestAnimationFrame for better performance
+  function updateSliderPosition() {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId)
+    }
+
+    animationFrameId = requestAnimationFrame(() => {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`
+    })
   }
 
   // Slider noktalarını güncelle
@@ -79,95 +92,130 @@ document.addEventListener("DOMContentLoaded", () => {
   // Otomatik slider
   let slideInterval = setInterval(nextSlide, 5000)
 
-  // Dokunmatik olayları
-  slider.addEventListener(
-    "touchstart",
-    (e) => {
-      clearInterval(slideInterval)
-      startX = e.touches[0].clientX
-      touchStartTime = new Date().getTime()
-    },
-    { passive: true },
-  )
+  // Improved touch handling
+  slider.addEventListener("touchstart", handleTouchStart, { passive: true })
+  slider.addEventListener("touchmove", handleTouchMove, { passive: false })
+  slider.addEventListener("touchend", handleTouchEnd, { passive: true })
 
-  slider.addEventListener(
-    "touchmove",
-    (e) => {
-      if (!startX) return
+  function handleTouchStart(e) {
+    clearInterval(slideInterval)
+    startX = e.touches[0].clientX
+    touchStartTime = new Date().getTime()
+    isDragging = true
 
-      const currentX = e.touches[0].clientX
-      const diff = startX - currentX
-      const slideWidth = slider.clientWidth
+    // Stop any ongoing transitions for immediate response
+    slider.style.transition = "none"
+  }
 
-      // Kaydırma sırasında slider'ı hareket ettir (sınırlı miktarda)
-      const translateX = -currentIndex * 100 - (diff / slideWidth) * 100
+  function handleTouchMove(e) {
+    if (!isDragging) return
 
-      // Sınırları kontrol et
-      if (translateX <= 0 && translateX >= -((slides.length - 1) * 100)) {
-        slider.style.transform = `translateX(${translateX}%)`
-      }
-    },
-    { passive: true },
-  )
+    const currentX = e.touches[0].clientX
+    const diff = startX - currentX
+    const slideWidth = slider.clientWidth
 
-  slider.addEventListener(
-    "touchend",
-    (e) => {
-      if (!startX) return
+    // Calculate the position but don't allow overscrolling past the first or last slide
+    let translateX = -currentIndex * 100 - (diff / slideWidth) * 100
 
-      touchEndTime = new Date().getTime()
-      const touchDuration = touchEndTime - touchStartTime
+    // Add resistance at the edges
+    if (currentIndex === 0 && diff < 0) {
+      translateX = -diff / (slideWidth * 3) // Stronger resistance at the beginning
+    } else if (currentIndex === slides.length - 1 && diff > 0) {
+      translateX = -(slides.length - 1) * 100 - diff / (slideWidth * 3) // Stronger resistance at the end
+    }
 
-      const currentX = e.changedTouches[0].clientX
-      const diff = startX - currentX
-      const slideWidth = slider.clientWidth
+    // Use requestAnimationFrame for smoother updates
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId)
+    }
 
-      // Hızlı kaydırma için daha az mesafe gerekir
-      const threshold = touchDuration < 250 ? slideWidth * 0.1 : slideWidth * 0.3
+    animationFrameId = requestAnimationFrame(() => {
+      slider.style.transform = `translateX(${translateX}%)`
+    })
 
-      if (diff > threshold) {
-        nextSlide()
-      } else if (diff < -threshold) {
-        prevSlide()
-      } else {
-        // Eşik değerini geçmezse mevcut slide'a geri dön
-        goToSlide(currentIndex)
-      }
+    // Prevent page scrolling when swiping the slider
+    e.preventDefault()
+  }
 
-      startX = null
-      slideInterval = setInterval(nextSlide, 5000)
-    },
-    { passive: true },
-  )
+  function handleTouchEnd(e) {
+    if (!isDragging) return
 
-  // Fare olayları
-  slider.addEventListener("mousedown", (e) => {
+    // Restore the transition
+    slider.style.transition = "transform 0.5s ease"
+
+    touchEndTime = new Date().getTime()
+    const touchDuration = touchEndTime - touchStartTime
+
+    const currentX = e.changedTouches[0].clientX
+    const diff = startX - currentX
+    const slideWidth = slider.clientWidth
+
+    // Adjust threshold based on swipe speed
+    const threshold = touchDuration < 250 ? slideWidth * 0.1 : slideWidth * 0.3
+
+    if (diff > threshold && currentIndex < slides.length - 1) {
+      nextSlide()
+    } else if (diff < -threshold && currentIndex > 0) {
+      prevSlide()
+    } else {
+      // Return to current slide
+      goToSlide(currentIndex)
+    }
+
+    isDragging = false
+    startX = null
+    slideInterval = setInterval(nextSlide, 5000)
+  }
+
+  // Improved mouse handling
+  slider.addEventListener("mousedown", handleMouseDown)
+  document.addEventListener("mousemove", handleMouseMove)
+  document.addEventListener("mouseup", handleMouseUp)
+
+  function handleMouseDown(e) {
     clearInterval(slideInterval)
     startX = e.clientX
     touchStartTime = new Date().getTime()
+    isDragging = true
 
-    // Sürükleme sırasında metin seçimini engelle
+    // Stop transitions for immediate response
+    slider.style.transition = "none"
+
+    // Prevent text selection during drag
     e.preventDefault()
-  })
+  }
 
-  slider.addEventListener("mousemove", (e) => {
-    if (!startX) return
+  function handleMouseMove(e) {
+    if (!isDragging) return
 
     const currentX = e.clientX
     const diff = startX - currentX
     const slideWidth = slider.clientWidth
 
-    // Kaydırma sırasında slider'ı hareket ettir (sınırlı miktarda)
-    const translateX = -currentIndex * 100 - (diff / slideWidth) * 100
+    // Calculate position with edge resistance
+    let translateX = -currentIndex * 100 - (diff / slideWidth) * 100
 
-    // Sınırları kontrol et
-    if (translateX <= 0 && translateX >= -((slides.length - 1) * 100)) {
-      slider.style.transform = `translateX(${translateX}%)`
+    if (currentIndex === 0 && diff < 0) {
+      translateX = -diff / (slideWidth * 3)
+    } else if (currentIndex === slides.length - 1 && diff > 0) {
+      translateX = -(slides.length - 1) * 100 - diff / (slideWidth * 3)
     }
-  })
 
-  slider.addEventListener("mouseup", (e) => {
-    if (!startX) return
+    // Use requestAnimationFrame for smoother updates
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId)
+    }
+
+    animationFrameId = requestAnimationFrame(() => {
+      slider.style.transform = `translateX(${translateX}%)`
+    })
+  }
+
+  function handleMouseUp(e) {
+    if (!isDragging) return
+
+    // Restore transition
+    slider.style.transition = "transform 0.5s ease"
 
     touchEndTime = new Date().getTime()
     const touchDuration = touchEndTime - touchStartTime
@@ -176,30 +224,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const diff = startX - currentX
     const slideWidth = slider.clientWidth
 
-    // Hızlı kaydırma için daha az mesafe gerekir
+    // Adjust threshold based on swipe speed
     const threshold = touchDuration < 250 ? slideWidth * 0.1 : slideWidth * 0.3
 
-    if (diff > threshold) {
+    if (diff > threshold && currentIndex < slides.length - 1) {
       nextSlide()
-    } else if (diff < -threshold) {
+    } else if (diff < -threshold && currentIndex > 0) {
       prevSlide()
     } else {
-      // Eşik değerini geçmezse mevcut slide'a geri dön
+      // Return to current slide
       goToSlide(currentIndex)
     }
 
+    isDragging = false
     startX = null
     slideInterval = setInterval(nextSlide, 5000)
-  })
+  }
 
-  // Fare sürüklemesi sırasında sayfadan çıkılırsa
-  document.addEventListener("mouseup", () => {
-    if (startX) {
-      goToSlide(currentIndex)
-      startX = null
-      slideInterval = setInterval(nextSlide, 5000)
-    }
-  })
+  // Add this meta tag to the head to prevent scaling issues on mobile
+  const metaViewport = document.querySelector('meta[name="viewport"]')
+  if (metaViewport) {
+    metaViewport.setAttribute("content", "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+  }
 
   // WhatsApp sipariş butonları için dinamik ürün bilgisi
   const whatsappButtons = document.querySelectorAll(".product-card .btn-whatsapp-small")
